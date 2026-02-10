@@ -15,9 +15,9 @@ if dia_semana >= 5:
     periodo = VALLE
 else:
     # Lunes a viernes
-    if hora < 8 or hora >= 22:
+    if hora < 8 and hora >= 0:
         periodo = VALLE
-    elif 8 <= hora < 10 or 14 <= hora < 18:
+    elif 8 <= hora < 10 or 14 <= hora < 18 or 22 <= hora < 24:
         periodo = LLANO
     elif 10 <= hora < 14 or 18 <= hora < 22:
         periodo = PUNTA
