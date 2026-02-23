@@ -1,0 +1,21 @@
+- id: '1771883123301'
+  alias: Aviso cambio hora electricidad
+  description: ''
+  triggers:
+  - minutes: 5
+    trigger: time_pattern
+  conditions:
+  - condition: template
+    value_template: '{{ states(''sensor.precio_luz_texto'') != states(''input_text.ultimo_periodo_luz'')
+      }}
+
+      '
+  actions:
+  - target:
+      entity_id: input_text.ultimo_periodo_luz
+    data:
+      value: '{{ states(''sensor.precio_luz_texto'') }}'
+    action: input_text.set_value
+  - action: script.precio_luz_hoy
+    data: {}
+  mode: single

@@ -1,0 +1,9 @@
+- precio_luz_hoy:
+    sequence:
+      - delay: "00:00:02"
+      - service: tts.speak
+        target:
+          entity_id: tts.google_translate_es_com
+        data:
+          media_player_entity_id: media_player.googlehome6450
+          message: "{{ states('sensor.precio_luz_texto') }}"

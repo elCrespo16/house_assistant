@@ -1,8 +1,15 @@
 services:
-  app:
+  homeassistant:
+    container_name: homeassistant
     build: .
     environment:
       TELEGRAM_BOT_TOKEN: "${TELEGRAM_BOT_TOKEN}"
       TELEGRAM_CHAT_ID: "${TELEGRAM_CHAT_ID}"
+    #network_mode: host
+    ports:
+      - "8123:8123"
     volumes:
-    - .:/code
+      - ./config:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true
