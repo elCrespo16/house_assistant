@@ -20,16 +20,16 @@ command_line:
       scan_interval: 60
       value_template: "{{ value | string | trim }}"
 
-#script:
-#  precio_luz_hoy:
-#    sequence:
-#      - delay: "00:00:02"
-#      - service: tts.speak
-#        target:
-#          entity_id: tts.google_translate_es_com
-#        data:
-#          media_player_entity_id: media_player.googlehome6450
-#          message: "{{ states('sensor.precio_luz_texto') }}"
+script:
+  precio_luz_hoy:
+    sequence:
+      - delay: "00:00:02"
+      - service: tts.speak
+        target:
+          entity_id: tts.google_translate_es_com
+        data:
+          media_player_entity_id: media_player.despacho
+          message: "{{ states('sensor.precio_luz_texto') }}"
 input_text:
   ultimo_periodo_luz:
     name: Último periodo de luz

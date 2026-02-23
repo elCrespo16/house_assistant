@@ -55,7 +55,7 @@ class MessageFormatter:
     @staticmethod
     def format(now: datetime, period: str) -> str:
         return (
-            f"⚡ Estás en {period}."
+            f"Estás en {period}."
         )
 
 

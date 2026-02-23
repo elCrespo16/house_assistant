@@ -2,7 +2,7 @@
   alias: Aviso cambio hora electricidad
   description: ''
   triggers:
-  - minutes: 5
+  - minutes: 1
     trigger: time_pattern
   conditions:
   - condition: template
